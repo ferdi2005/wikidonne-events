@@ -62,11 +62,11 @@ class EventsController < ApplicationController
   end
 
   def map
-    @events = Events.all
+    @events = Event.all
   end
 
   def wiki
-    @events = Events.where('enddate >= ?', Date.today)
+    @events = Event.where('enddate >= ?', Date.today)
   end
   private
     # Use callbacks to share common setup or constraints between actions.
