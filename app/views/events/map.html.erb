@@ -1,14 +1,14 @@
- <div style="height:100%, width: 100%" id="mapid"></div>
+ <div style="height:100vh" id="mapid"></div>
 
  <script>
- var map = L.map('mapid').setView([42.50, 12.50], 12);
+ var map = L.map('mapid').setView([41.54, 12.28], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-<%= @events.each do |event| %>
-L.marker([<%= @event.latitude %>, <%= @event.longitude %>]).addTo(map)
+<% @events.each do |event| %>
+L.marker([<%= event.latitude %>, <%= event.longitude %>]).addTo(map)
     .bindPopup('<b><%= event.name %></b></br> <%= event.place %>, <%= event.address %></br> <%= event.startdate %> - <%= event.enddate %>');
 <% end %>
 
