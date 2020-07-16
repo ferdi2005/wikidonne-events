@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where
   end
 
   # GET /events/1
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
   end
 
   def map
-    @events = Event.all
+    @events = Event.where('enddate >= ?', Date.today)
   end
 
   def wiki
